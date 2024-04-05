@@ -15,76 +15,6 @@ public class Assignment3a
 	public static int presentsAdded = 0;
 	public static int notesSent = 0;
 
-    public static void main(String[] args)
-	{	
-
-		// Start tracking the time for the end report
-		long startTime = System.currentTimeMillis();
-
-		// Initialize Printwriter
-        try
-		{
-            printWriter = new PrintWriter("thankYouNoteOutput.txt");
-        }
-		catch (Exception e)
-		{
-            e.printStackTrace();
-            return;
-        }
-
-        // Pre-generate all presents and shuffle them
-		System.out.println("Filling the bag");
-        for (int i = 1; i <= 500000; i++)
-		{
-            presentBag.add(i);
-        }
-        Collections.shuffle(presentBag);
-
-        // Create list and servants
-        PresentChain presentChain = new PresentChain();
-
-		System.out.println("Creating servants 1 through 4");
-        MinotaurServant servant1 = new MinotaurServant(presentChain);
-        MinotaurServant servant2 = new MinotaurServant(presentChain);
-        MinotaurServant servant3 = new MinotaurServant(presentChain);
-        MinotaurServant servant4 = new MinotaurServant(presentChain);
-
-        // Create threads
-        Thread[] threads = new Thread[]{new Thread(servant1), new Thread(servant2), 
-										new Thread(servant3), new Thread(servant4)};
-
-        // Start threads
-        for (Thread thread : threads)
-		{
-			thread.start();
-		}
-
-        // Wait for the threads to finish
-        System.out.println("Begin sorting, servants!");
-        for (Thread thread : threads)
-		{
-			try
-			{
-				thread.join();
-			}
-			catch (InterruptedException e)
-			{
-				e.printStackTrace();
-			}
-		}
-
-		// Calculate the duration of the program
-		long endTime = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-		long simplifiedTime = totalTime/1000;
-
-		System.out.println("Total runtime is " + totalTime + 
-		" milliseconds, or " + simplifiedTime + " seconds.");
-
-		System.out.println("Presents: " + presentsAdded);
-		System.out.println("Letters: " + notesSent);
-    }
-
 	static class Present
 	{
 		int presentID;
@@ -278,5 +208,75 @@ public class Assignment3a
 				printWriter.println(Thread.currentThread().getName() + " did not find Present with ID: " + presentID + " in the chain");
 			}
 		}
+	}
+
+	public static void main(String[] args)
+	{	
+
+		// Start tracking the time for the end report
+		long startTime = System.currentTimeMillis();
+
+		// Initialize Printwriter
+		try
+		{
+			printWriter = new PrintWriter("thankYouNoteOutput.txt");
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			return;
+		}
+
+		// Pre-generate all presents and shuffle them
+		System.out.println("Filling the bag");
+		for (int i = 1; i <= 500000; i++)
+		{
+			presentBag.add(i);
+		}
+		Collections.shuffle(presentBag);
+
+		// Create list and servants
+		PresentChain presentChain = new PresentChain();
+
+		System.out.println("Creating servants 1 through 4");
+		MinotaurServant servant1 = new MinotaurServant(presentChain);
+		MinotaurServant servant2 = new MinotaurServant(presentChain);
+		MinotaurServant servant3 = new MinotaurServant(presentChain);
+		MinotaurServant servant4 = new MinotaurServant(presentChain);
+
+		// Create threads
+		Thread[] threads = new Thread[]{new Thread(servant1), new Thread(servant2), 
+										new Thread(servant3), new Thread(servant4)};
+
+		// Start threads
+		for (Thread thread : threads)
+		{
+			thread.start();
+		}
+
+		// Wait for the threads to finish
+		System.out.println("Begin sorting, servants!");
+		for (Thread thread : threads)
+		{
+			try
+			{
+				thread.join();
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+
+		// Calculate the duration of the program
+		long endTime = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		long simplifiedTime = totalTime/1000;
+
+		System.out.println("Total runtime is " + totalTime + 
+		" milliseconds, or " + simplifiedTime + " seconds.");
+
+		System.out.println("Presents: " + presentsAdded);
+		System.out.println("Letters: " + notesSent);
 	}
 }

@@ -1,0 +1,13 @@
+Report For Hour 19
+
+Highest Temperatures:
+ 70F  69F  66F  66F  66F 
+
+Lowest Temperatures:
+-100F -100F -99F -98F -96F 
+
+Largest Temperature Change Over A 10 Minute Interval:
+164F
+
+Interval Occurred Over:
+19:44 - 19:54

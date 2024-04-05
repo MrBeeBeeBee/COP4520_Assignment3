@@ -1,0 +1,13 @@
+Report For Hour 22
+
+Highest Temperatures:
+ 70F  70F  70F  70F  70F 
+
+Lowest Temperatures:
+-100F -100F -100F -99F -99F 
+
+Largest Temperature Change Over A 10 Minute Interval:
+170F
+
+Interval Occurred Over:
+22:47 - 22:57
