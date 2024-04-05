@@ -1,0 +1,66 @@
+To run either Assignment3a.java or Assignment3b.java on command line, 
+set your path to the location of the file.
+Enter the following commands.
+
+For Assignment 3 Part 1
+
+javac Assignment3a.java
+java Assignment3a
+
+For Assignment 3 Part 2
+
+javac Assignment3b.java
+java Assignment3b
+
+Part Two of Assignment Three required us to write a program, 
+gathering temperature data via 8 threads over a simulated 24 hours.
+Each hour, the highest and lowest 5 temperatures would be recorded, 
+as well as the time span the greatest change in temperature occurred over.
+At the end of each hour, a written report would be generated detailing this information.
+
+Efficiency:
+
+-Multithreading
+In regards to efficiency, the program by necessity uses 
+multithreading to gather the temperature data.
+As the threads run concurrently, they are able to simultaneously 
+gather all required data.
+The program ends once all threads have recorded all necessary data 
+and have ended their processes.
+
+- Synchronization
+The Collections framework allows for synchronization to ensure thread-safe
+access to shared data structures. Namely, this is especially useful for
+lists like recordHighs, recordLows, and extremeSets.
+
+- PrintWriter & File I/O Operations
+In my initial writing of Part One of Assignment 3, I hadn't implemented 
+file outputs yet. This causes the program to run for upwards of 9 minutes.
+However, both Part One and Part Two benefitted immensely from the conversion
+to writing to files via PrintWriter, which reduces the number of system calls 
+and optimizes the writing of data.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Correctness:
+
+-Temperature Calculations
+The generated data is well within bounds and managed by the Probes
+to ensure the accurate extremes are calculated. The method "recordExtremes"
+in particular guarantees that each report will have the correct information.
+
+-Report Generation
+Hourly reports are generated that detail the top 5 extremes on both ends, 
+the largest temperature chance over 10 minutes, and when that change occurred.
+This ensures that the necessary information can be fact-checked by the user.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Progress:
+
+-Step by Step Iteration and Report Generation
+The iteration of temperature data generation not only by minute but by hour 
+ensures that regardless of if a Probe falters for a moment at data reporting,
+the processes that are gathering data will not be inhibited.
+The reports being generated ensure that the user is aware of progress being made, 
+particularly when accompanied by command-line outputs noting each hourly report's generation.
+Finally, the program advances through each minute interval sequentially, 
+ensuring that data collection and report generation for the current hour 
+are completed before moving on. This step-by-step progression 
+guarantees a steady and systematic monitoring process.
