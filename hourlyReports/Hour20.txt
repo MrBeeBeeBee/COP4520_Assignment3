@@ -1,13 +1,13 @@
 Report For Hour 20
 
 Highest Temperatures:
- 70F  70F  70F  70F  70F 
+ 70F  70F  69F  69F  69F 
 
 Lowest Temperatures:
--100F -100F -98F -98F -98F 
+-100F -100F -100F -98F -97F 
 
 Largest Temperature Change Over A 10 Minute Interval:
-170F
+169F
 
 Interval Occurred Over:
-20:43 - 20:53
+20:26 - 20:36

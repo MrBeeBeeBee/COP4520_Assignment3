@@ -1,13 +1,13 @@
 Report For Hour 08
 
 Highest Temperatures:
- 70F  70F  70F  69F  67F 
+ 70F  69F  69F  68F  67F 
 
 Lowest Temperatures:
--100F -99F -99F -99F -99F 
+-100F -100F -100F -100F -99F 
 
 Largest Temperature Change Over A 10 Minute Interval:
 167F
 
 Interval Occurred Over:
-08:30 - 08:40
+08:48 - 08:58
