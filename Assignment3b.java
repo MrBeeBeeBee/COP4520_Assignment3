@@ -169,8 +169,8 @@ public class Assignment3b
 		}
 
 		System.out.println("Beginning Data Collection");
-		// Run Probe Manager for 24 hours
-		for (int h = 0; h < 24; h++)
+		// Run Probe Manager for 48 hours
+		for (int h = 0; h < 48; h++)
 		{
 			// Track the extremes of each minute
 			currentHour = h;
